@@ -46,9 +46,14 @@ app.post('/', async function (req, res) {
     let ctx = {};
 
     let username = req.body.username;
-    let result = await transfer(process.env.STEEM_ACTIVE, process.env.STEEM_USER, username, "5.000 TESTS");
     let account = (await steem.api.callAsync('condenser_api.get_accounts', [[process.env.STEEM_USER]]))[0];
 
+    let result;
+    if (parseFloat(account.balance) > 100) {
+         result = await transfer(process.env.STEEM_ACTIVE, process.env.STEEM_USER, username, "5.000 TESTS");
+    } else {
+        result = {err : {message : "Faucet's balance can't go lower than 100 TESTS"} }
+    }
     ctx.result = result.status === "ok";
     ctx.err = result.err !== undefined ? result.err.message : false;
     ctx.tests = account.balance;
@@ -58,4 +63,4 @@ app.post('/', async function (req, res) {
     res.render('home', ctx);
 });
 
-app.listen(3000);
+app.listen(4000);
