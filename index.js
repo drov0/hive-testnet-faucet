@@ -54,6 +54,7 @@ app.post('/', async function (req, res) {
     } else {
         result = {err : {message : "Faucet's balance can't go lower than 100 TESTS"} }
     }
+
     ctx.result = result.status === "ok";
     ctx.err = result.err !== undefined ? result.err.message : false;
     ctx.tests = account.balance;
