@@ -10,17 +10,35 @@
         <div class="row h-100">
             <div class="col-12 my-auto">
                 <div class="masthead-content text-white py-5 py-md-0">
-                    <h1 class="mb-3">Steem Testnet faucet</h1>
+                    <h1 class="mb-3">Steem Testnet Faucet</h1>
                     <p class="mb-5">This website allows you to claim testnet tokens. Keep in mind that those tokens are
                         <strong>worthless</strong>! They are only here for testing purposes <br/>
-                    Input your username and you will recieve 10 TESTS (equivalent of STEEM)
+                        Input your username and you will recieve 5 TESTS (equivalent of STEEM on the testnet)
                     </p>
-                    <div class="input-group input-group-newsletter">
-                        <input type="text" class="form-control" name="username" placeholder="Enter Steem username..." aria-label="Enter Steem username..." aria-describedby="basic-addon">
-                        <div class="input-group-append">
-                            <button class="btn btn-secondary" type="button">Send tokens</button>
+
+                    <p style="font-size: 15px">
+                        TESTS in the faucet : {{tests}} </br>
+                        Current chain id : <br/>{{chain_id}}</p>
+
+                    {{#if result}}
+                    <p style="font-size: 15px">
+                        5 TESTS are on your way :) </br>
+                    </p>
+                    {{/if}}
+                    {{#if err}}
+                    <p style="font-size: 15px">
+                       Error : {{err}} </br>
+                    </p>
+                    {{/if}}
+                    </br>
+                    <form method="post" style="display: inline-block">
+                        <div class="input-group input-group-newsletter">
+                            <input type="text" class="form-control" name="username" placeholder="Enter Steem username..." aria-label="Enter Steem username..." aria-describedby="basic-addon">
+                            <div class="input-group-append">
+                                <button class="btn btn-secondary" type="submit">Send tokens</button>
+                            </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
