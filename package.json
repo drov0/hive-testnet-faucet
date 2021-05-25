@@ -9,12 +9,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@hiveio/hive-js": "^0.8.13",
     "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-handlebars": "^3.1.0",
     "handlebars": "^4.5.1",
-    "node-json-db": "^1.0.2",
-    "steem": "^0.7.9"
+    "node-json-db": "^1.0.2"
   }
 }
