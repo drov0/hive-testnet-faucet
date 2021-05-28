@@ -1,55 +1,75 @@
+<div class="container--lg pt1 pb1">
+    <div class="grid-row grid-row--center">
+        <div class="grid-column mt3 mb2 order-2">
+            <div class="border--bottom pb2 mb2">
+                <h2>Faucet</h2>
+                <p class="mb-5">this form allows you to claim testnet tokens. Keep in mind that those tokens are
+                    <strong>worthless</strong>! They are only here for testing purposes <br/><br/>
+                    Input your username and you will get {{given_tokens}} TESTS and TBD (equivalent of HIVE and HBD on the testnet)
+                </p>
 
-<div class="overlay"></div>
-<video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-    <source src="mp4/bg.mp4" type="video/mp4">
-</video>
-
-<div class="masthead">
-    <div class="masthead-bg"></div>
-    <div class="container h-100">
-        <div class="row h-100">
-            <div class="col-12 my-auto">
-                <div class="masthead-content text-white py-5 py-md-0">
-                    <h1 class="mb-3">Hive Testnet Faucet</h1>
-                    <p class="mb-5">This website allows you to claim testnet tokens. Keep in mind that those tokens are
-                        <strong>worthless</strong>! They are only here for testing purposes <br/>
-                        Input your username and you will get {{given_tokens}} TESTS and TBD (equivalent of HIVE and HBD on the testnet)
-                    </p>
-                    <p style="font-size: 15px">
-                        In the faucet there is currently: <br/>
-                        {{tests}} </br>
-                        {{tbd}} </br>
-                        Current chain id : <br/>{{chain_id}}</p>
-
-                    {{#if result}}
+                {{#if result}}
                     <p style="font-size: 15px">
                         {{result}} TESTS and TBD are on your way :) </br>
                     </p>
-                    {{/if}}
-                    {{#if err}}
+                {{/if}}
+                {{#if err}}
                     <p style="font-size: 15px">
-                       Error : {{err}} </br>
+                        Error : {{err}} </br>
                     </p>
-                    {{/if}}
-                    </br>
-                    <form method="post" style="display: inline-block">
-                        <div class="input-group input-group-newsletter">
-                            <input type="text" class="form-control" name="username" placeholder="Enter Hive username..." aria-label="Enter Hive username..." aria-describedby="basic-addon">
-                            <div class="input-group-append">
-                                <button class="btn btn-secondary" type="submit">Send tokens</button>
-                            </div>
-                        </div>
-                    </form>
-                    <br />
-                    <p>This is a tool by <a href="https://peakd.com/@howo">@howo</a> <br/>
-                        please consider voting for my <a href="https://peakd.com/hive/@howo/core-development-proposal-year-2">proposal</a> <br/>
-                        And for the <a href="https://peakd.com/@steempress">@steempress</a> witness : <a href="https://hivesigner.com/sign/account-witness-vote?witness=steempress&approve=1">vote</a>
+                {{/if}}
+                </br>
+                <form method="post" style="display: inline-block">
+                    <input type="text" class="form-control" name="username" placeholder="Enter Hive username..." aria-label="Enter Hive username..." aria-describedby="basic-addon">
+                    <button class="btn btn-secondary" type="submit">Send tokens</button>
+                </form>
+                <p style="font-size: 15px">
+                    In the faucet there is currently: <br/>
+                    {{tests}} and {{tbd}}
+                </p>
+            </div>
+        </div>
 
-                    </p>
+    </div>
+</div>
+<div class="container--lg pt1 pb1">
+    <div class="grid-row grid-row--center">
+        <div class="grid-column mt3 mb2 order-2">
+            <div class="border--bottom pb2 mb2">
+                <h2>Frequently asked questions</h2>
+                <h4 style="margin-top: .8rem"> Can use my regular keys on the testnet ? </h4>
+                <p> Yes ! Thanks to <a href="https://gitlab.syncad.com/hive/tinman">tinman</a>, all the keys have been ported, you can use your account on the testnet just like you would on the main net</p>
+                <h4 style="margin-top: .8rem"> Can I use keychain / hivesigner to secure my keys</h4>
+                <p> Both will be supported eventually, as of today (27/05/2021) keychain does not support it on it's main release but you can install a special version here <a href="https://github.com/stoodkev/hive-keychain/tree/testnets">https://github.com/stoodkev/hive-keychain/tree/testnets</a> </p>
+                <h4 style="margin-top: .8rem"> What's the chain id ?</h4>
+                <p> the chain id is <code>{{chain_id}}</code> <br/></p>
+                <h4 style="margin-top: .8rem"> What's the testnet api url ?</h4>
+                <p> the api url is <code>{{testnet_api_url}}</code> <br/></p>
+                <h4 style="margin-top: .8rem"> How can I help if I'm not a dev ?</h4>
+                <p> Just go on the various testnet websites and do what you would usually do, transfer tokens, make posts etc etc and write a post tagging @blocktrades / @howo / @gtg / or any witness really letting us know if something is wrong :)<br/></p>
+            </div>
+        </div>
 
-                </div>
+    </div>
+</div>
+
+<!-- Feature list -->
+<div class="container--lg pt1 pb1">
+    <h2>Various testnet resources</h2>
+    <div class="container text--gray align--left ">
+        <div class="grid-row">
+            <div class="grid-column span-one-third mb3 reveal-on-scroll is-revealing">
+                <img class="illustration--small mb1" src="/img/assign.svg" alt="Assign to others">
+                <p><a href="https://test.ausbit.dev/"> Block explorer</a></p>
+            </div>
+            <div class="grid-column span-one-third mb3 reveal-on-scroll is-revealing">
+                <img class="illustration--small mb1" src="/img/connected.svg" alt="Stay connected">
+                <p><a href="https://testnet.peakd.com/">testnet Peakd </a></p>
+            </div>
+            <div class="grid-column span-one-third mb3 reveal-on-scroll is-revealing">
+                <img class="illustration--small mb1" src="/img/search.svg" alt="Powerful search">
+                <p><a href="https://testblog.openhive.network//">testnet hive.blog </a></p>
             </div>
         </div>
     </div>
 </div>
-

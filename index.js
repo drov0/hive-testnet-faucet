@@ -10,7 +10,7 @@ var jsondb = new JsonDB(new Config("db", true, false, '/'));
 
 let chain_id = process.env.CHAIN_ID;
 
-hive.api.setOptions({url: 'https://testnet.openhive.network/', address_prefix : 'TST', 'chain_id' : chain_id});
+hive.api.setOptions({url: process.env.TESTNET_API_URL, address_prefix : 'TST', 'chain_id' : chain_id});
 hive.config.set('address_prefix', 'TST');
 hive.config.set('chain_id', chain_id);
 
@@ -58,6 +58,7 @@ app.get('/', async function (req, res) {
     ctx.tbd = account.hbd_balance;
     ctx.chain_id = chain_id;
     ctx.given_tokens = process.env.AMOUNT_GIVEN;
+    ctx.testnet_api_url = process.env.TESTNET_API_URL;
 
     res.render('home', ctx);
 });
@@ -73,6 +74,7 @@ app.post('/', async function (req, res) {
     ctx.chain_id = chain_id;
     ctx.username = username;
     ctx.given_tokens = process.env.AMOUNT_GIVEN;
+    ctx.testnet_api_url = process.env.TESTNET_API_URL;
 
     let user_data;
 
@@ -121,7 +123,7 @@ app.post('/', async function (req, res) {
 
     ctx.err = result.err !== undefined ? result.err.message : false;
 
-    res.render('home', ctx);
+    res.render('main', ctx);
 });
 
 app.listen(4000);
