@@ -123,7 +123,7 @@ app.post('/', async function (req, res) {
 
     ctx.err = result.err !== undefined ? result.err.message : false;
 
-    res.render('main', ctx);
+    res.render('home', ctx);
 });
 
 app.listen(4000);
