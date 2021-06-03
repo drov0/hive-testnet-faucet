@@ -100,13 +100,7 @@ app.post('/', async function (req, res) {
         }
     }
 
-    let result;
-    if (parseFloat(account.balance) > 100 && parseFloat(account.hbd_balance) > 100) {
-        result = await transfer_tokens(process.env.HIVE_ACTIVE, process.env.HIVE_USER, username, process.env.AMOUNT_GIVEN);
-    } else {
-        result = {err : {message : "Faucet's balance can't go lower than 100 TESTS or TBD"} }
-    }
-
+    let result = await transfer_tokens(process.env.HIVE_ACTIVE, process.env.HIVE_USER, username, process.env.AMOUNT_GIVEN);
     if (result.status === "ok")
     {
         if (user_data === undefined)
